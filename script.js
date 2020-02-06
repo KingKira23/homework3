@@ -8,25 +8,28 @@ var uppercase = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P"
 var numbers = [0,1,2,3,4,5,6,7,8,9];
 var symbols = ["!","@","#","$","%","^","&","*"];
 var slections= [];
+var password= [];
+var $text= document.querySelector(".text")
 
 
-var lowersel= confirm("would you like it to contain lowercase letters")
-var uppersel= confirm("would you like it to contain uppercase letters")
-var numsel= confirm("would you like it to contain numbers")
-var symbolsel= confirm("would you like it to contain symbols")
+var lowersel= confirm("would you like it to contain lowercase letters");
+var uppersel= confirm("would you like it to contain uppercase letters");
+var numsel= confirm("would you like it to contain numbers");
+var symbolsel= confirm("would you like it to contain symbols");
+
 
 if(lowersel === true){
-  slections.push("lowercase");
-}
+  slections.push(lowercase);
+};
 if(uppersel === true){
-  slections.push("uppercase")
-}
+  slections.push(uppercase);
+};
 if(numsel === true){
-  slections.push("numbers")
-}
+  slections.push(numbers);
+};
 if(symbolsel === true){
-  slections.push("symbols")
-}
+  slections.push(symbols);
+};
 
 
 // var rnumletter = Math.floor(Math.random()*26)
@@ -34,25 +37,33 @@ if(symbolsel === true){
 // var rnumsym = Math.floor(Math.random()*8)
 // var rnumsel = Math.floor(Math.random()*slections.length)
 
-var input = prompt("how long would you like your password to be")
+var input = prompt("how long would you like your password to be");
 
 
 for (i=0;i<(parseInt(input));i++){
-  var rnumsel = Math.floor(Math.random()*slections.length)
-  if(slections[lowercase]){
-    var rnumletter = Math.floor(Math.random()*26)
-  }
-  else if(slections[uppercase]){
-    var rnumletter = Math.floor(Math.random()*26)
-  }
-  else if(slections[numbers]){
-    var rnumnum = Math.floor(Math.random()*10)
-  }
-  else if(slections[symbols]){
-    var rnumsym = Math.floor(Math.random()*8)
-  }
-}
+  // var rnumsel = Math.floor(Math.random()*slections.length);
+  // if(slections[lowercase]){
+  //   var rnumletter = Math.floor(Math.random()*26);
 
+  // }
+  // else if(slections[uppercase]){
+  //   var rnumletter = Math.floor(Math.random()*26);
+  // }
+  // else if(slections[numbers]){
+  //   var rnumnum = Math.floor(Math.random()*10);
+  // }
+  // else if(slections[symbols]){
+  //   var rnumsym = Math.floor(Math.random()*8);
+  // }
+  var rnumsel = slections[Math.floor(Math.random()*slections.length)];
+  var selected = rnumsel[Math.floor(Math.random()*rnumsel.length)];
+  password.push(selected);
+};
+var print= password.toString();
+
+$text.children[0].textContent = print
+
+console.log(password)
 
 
 
