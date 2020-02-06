@@ -2,26 +2,27 @@
 // make arrays for all entrys
 // make a blank array to place what is selected to randomize
 // make random generators for each aspect
-var generateBtn = document.querySelector("#generate");
+
+// var generateBtn = document.querySelector("#generate");
 var lowercase = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
 var uppercase = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
 var numbers = [0,1,2,3,4,5,6,7,8,9];
 var symbols = ["!","@","#","$","%","^","&","*"];
-var slections= [];
-var password= [];
 var $text= document.querySelector(".text")
 
+function generate(){
+  var lowersel= confirm("would you like it to contain lowercase letters");
+  var uppersel= confirm("would you like it to contain uppercase letters");
+  var numsel= confirm("would you like it to contain numbers");
+  var symbolsel= confirm("would you like it to contain symbols");
+  var slections= [];
+  var password= [];
 
-var lowersel= confirm("would you like it to contain lowercase letters");
-var uppersel= confirm("would you like it to contain uppercase letters");
-var numsel= confirm("would you like it to contain numbers");
-var symbolsel= confirm("would you like it to contain symbols");
-
-
-if(lowersel === true){
-  slections.push(lowercase);
-};
-if(uppersel === true){
+  
+  if(lowersel === true){
+    slections.push(lowercase);
+  };
+  if(uppersel === true){
   slections.push(uppercase);
 };
 if(numsel === true){
@@ -59,11 +60,13 @@ for (i=0;i<(parseInt(input));i++){
   var selected = rnumsel[Math.floor(Math.random()*rnumsel.length)];
   password.push(selected);
 };
-var print= password.toString();
+// var print= password.toString();
+var print= password.join("");
 
-$text.children[0].textContent = print
+$text.textContent = print
+}
 
-console.log(password)
+console.log(print)
 
 
 
@@ -77,13 +80,13 @@ console.log(password)
 
 
 // Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
+// function writePassword() {
+//   var password = generatePassword();
+//   var passwordText = document.querySelector("#password");
 
-  passwordText.value = password;
+//   passwordText.value = password;
 
-}
+// }
 
 // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+// generateBtn.addEventListener("click", writePassword);
