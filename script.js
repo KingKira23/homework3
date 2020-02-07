@@ -11,51 +11,59 @@ var symbols = ["!","@","#","$","%","^","&","*"];
 var $text= document.querySelector(".text")
 
 function generate(){
+  var user = [];
   function tryAgain(){
-    var input = prompt("how long would you like your password to be");
+    var input = prompt("how long would you like your password to be. (between 8-128");
 
-    if (input === ) {
-
+    if (input >= 8 && input <= 128) {
+      user.push(input)
     }
     else{
+      alert("that is not a number between 8-128")
       tryAgain()
     }
   }
+  tryAgain()
   
-  
-  var lowersel= confirm("would you like it to contain lowercase letters");
-  var uppersel= confirm("would you like it to contain uppercase letters");
-  var numsel= confirm("would you like it to contain numbers");
-  var symbolsel= confirm("would you like it to contain symbols");
-  var slections= [];
   var password= [];
-
   
-  if(lowersel === true){
-    slections.push(lowercase);
-  };
-  if(uppersel === true){
-    slections.push(uppercase);
-  };
-  if(numsel === true){
-    slections.push(numbers);
-  };
-  if(symbolsel === true){
-    slections.push(symbols);
-  };
-
-
-  for (i=0;i<(parseInt(input));i++){
-    var rnumsel = slections[Math.floor(Math.random()*slections.length)];
-    var selected = rnumsel[Math.floor(Math.random()*rnumsel.length)];
-    password.push(selected);
-  };
-  var print= password.join("");
   
-  $text.textContent = print
-}
+  function selctor(){
+    var lowersel= confirm("would you like it to contain lowercase letters");
+    var uppersel= confirm("would you like it to contain uppercase letters");
+    var numsel= confirm("would you like it to contain numbers");
+    var symbolsel= confirm("would you like it to contain symbols");
+    var slections= [];
+    if(lowersel === true){
+      slections.push(lowercase);
+    }
+    if(uppersel === true){  
+      slections.push(uppercase);
+    }
+    if(numsel === true){
+      slections.push(numbers);
+    }
+    if(symbolsel === true){
+      slections.push(symbols);
+    }
+    if(slections[0] === undefined){
+      alert("must select atleast one")
+      selctor()
+    }
+      for (i=0;i<(parseInt(user));i++){
+        var rnumsel = slections[Math.floor(Math.random()*slections.length)];
+        var selected = rnumsel[Math.floor(Math.random()*rnumsel.length)];
+        password.push(selected);
+      };
+      var print= password.join("");
+  
+      $text.textContent = print    
+  };
 
-console.log(print)
+  selctor()
+
+};
+
 
 
 
